@@ -1,0 +1,57 @@
+# name of the workflow
+name: Matrix Testing
+
+# when to run the workflow
+on:
+  push:
+    branches: [ master ]
+
+# jobs to run
+jobs:
+  build:
+    # name of the job
+    name: Matrix Testing
+
+    # runs on ubuntu-latest
+    runs-on: ubuntu-latest
+
+    # strategy for matrix testing
+    strategy:
+      matrix:
+        python-version: [3.7, 3.8, 3.9, 3.10]
+
+    # steps to run
+    steps:
+      # checkout the repo
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # set up python
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      # install dependencies
+      - name: Install Dependencies
+        run: |
+          make install
+
+      # run tests
+      - name: Run Tests
+        run: |
+          make test
+          
+      # lint code
+      - name: Lint Code
+        run: |
+          make lint 
+
+
+
+
+
+
+
+
+
