@@ -1,4 +1,4 @@
-from main import test_fun
+from main import simple_function
 
 def test_main():
-  assert test_fun(1, 2) == 3
+  assert simple_function(1, 2) == 3

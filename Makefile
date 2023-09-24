@@ -9,4 +9,4 @@ format:
 	black *.py
 
 test:
-	python -m pytest -v test_main.py
+	pytest -v

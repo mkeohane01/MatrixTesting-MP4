@@ -1,4 +1,4 @@
-def test_fun(x, y):
+def simple_function(x, y):
     return x + y
 
 if __name__ == "__main__":
