@@ -2,9 +2,8 @@
 name: Matrix Testing
 
 # when to run the workflow
-on:
-  push:
-    branches: [ master ]
+on: [push]
+
 
 # jobs to run
 jobs:
@@ -41,7 +40,7 @@ jobs:
       - name: Run Tests
         run: |
           make test
-          
+
       # lint code
       - name: Lint Code
         run: |
